@@ -4,24 +4,28 @@ const projetos = [
   {
     slug: "reciclagem-na-escola",
     titulo: "Reciclagem na Escola",
+    escola: "Escola Florescer",
     resumo: "Implementamos um sistema de coleta seletiva com alunos.",
     imagem: "https://www.uninter.com/noticias/wp-content/uploads/2022/03/noticias_5-dicas-de-como-separar-o-lixo-na-escola-e-conscientizar-os-alunos.png",
   },
   {
     slug: "horta-escolar",
     titulo: "Horta Comunitária Escolar",
+    escola: "E.M. Santa Rita",
     resumo: "Nossa horta ensina aos alunos sobre cultivo de alimentos.",
     imagem: "https://www.escoladainteligencia.com.br/wp-content/uploads/2019/11/291122-conheca-5-razoes-para-criar-uma-horta-na-escola.jpg",
   },
   {
     slug: "reducao-de-lixo-plastico",
     titulo: "Reduzindo o Lixo Plástico",
+    escola: "C.E. Vila Verde",
     resumo: "Campanhas para diminuir o uso de plástico com oficinas.",
     imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNWwuHVRMrhrX--hCKItAplwiaHCN7lsFBBw&s",
   },
   {
     slug: "compostagem-domestica",
     titulo: "Projeto de Compostagem",
+    escola: "Escola União",
     resumo: "Ensinamos os alunos a compostar resíduos orgânicos.",
     imagem: "https://www.correiosc.com.br/wp-content/uploads/2021/07/Projeto_Horta-4-min.jpg",
   },
@@ -58,7 +62,7 @@ export default function Home() {
               </div>
               <div className="p-5 flex flex-col flex-grow">
                 <h2 className="text-xl font-bold text-green-900 mb-1">{projeto.titulo}</h2>
-                {/* Escola removida */}
+                <p className="text-sm font-medium text-green-700 mb-3">{projeto.escola}</p>
                 <p className="text-gray-700 text-sm flex-grow">{projeto.resumo}</p>
               </div>
             </article>
