@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-interface PageProps {
+interface ProjetoRouteProps  {
   params: {
     slug: string;
   };
@@ -89,7 +89,7 @@ function getYoutubeEmbedUrl(url: string) {
   }
 }
 
-export default function ProjetoPage({ params }: PageProps) {
+export default function ProjetoPage({ params }: ProjetoRouteProps ) {
   const projeto = projetos[params.slug];
   if (!projeto) return notFound();
 
