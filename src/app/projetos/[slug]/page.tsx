@@ -1,5 +1,11 @@
 import { notFound } from "next/navigation";
 
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
 const projetos: Record<
   string,
   {
@@ -79,11 +85,11 @@ function getYoutubeEmbedUrl(url: string) {
     const videoId = urlObj.searchParams.get("v");
     return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
   } catch {
-    return url; // caso a URL seja inválida, retorna ela mesma
+    return url;
   }
 }
 
-export default function ProjetoPage({ params }: { params: { slug: string } }) {
+export default function ProjetoPage({ params }: PageProps) {
   const projeto = projetos[params.slug];
   if (!projeto) return notFound();
 
@@ -91,17 +97,18 @@ export default function ProjetoPage({ params }: { params: { slug: string } }) {
     <main className="max-w-4xl mx-auto px-4 py-10">
       <h1 className="text-4xl font-bold text-green-800 mb-2">{projeto.titulo}</h1>
       <p className="text-gray-600 mb-6">Realizado por: {projeto.escola}</p>
+
       <img
         src={projeto.imagem}
         alt={projeto.titulo}
         className="w-full h-64 object-cover rounded-lg mb-6"
       />
-      
-      
+
       <section className="mb-6">
         <h2 className="text-2xl font-semibold text-green-700 mb-2">Importância</h2>
         <p className="text-gray-700">{projeto.importancia}</p>
       </section>
+
       <div className="aspect-w-16 aspect-h-9 mb-6">
         <iframe
           src={getYoutubeEmbedUrl(projeto.video)}
@@ -110,10 +117,12 @@ export default function ProjetoPage({ params }: { params: { slug: string } }) {
           className="w-full h-[50vh] rounded-lg"
         ></iframe>
       </div>
+
       <section className="mb-6">
         <h2 className="text-2xl font-semibold text-green-700 mb-2">Descrição do Projeto</h2>
         <p className="text-gray-700 whitespace-pre-line">{projeto.descricao}</p>
       </section>
+
       <section>
         <h2 className="text-2xl font-semibold text-green-700 mb-2">Impacto Esperado</h2>
         <p className="text-gray-700">{projeto.impacto}</p>
