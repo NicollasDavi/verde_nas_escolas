@@ -8,6 +8,7 @@ interface ChatModalProps {
 type Role = "system" | "user" | "assistant";
 
 interface Message {
+    
   role: Role;
   content: string;
 }
